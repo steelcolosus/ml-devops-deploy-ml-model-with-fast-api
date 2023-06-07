@@ -16,6 +16,7 @@ PIP := $(EXEC_PATH)pip
 PYTHON := $(EXEC_PATH)python3
 PYTEST := $(PYTHON) -m pytest
 FLAKE := $(EXEC_PATH)flake8
+UVICORN := $(EXEC_PATH)uvicorn
 VENV:= python3 -m venv
 
 variables := PYTHONPATH  USER_NAME PYTHON_VERSION PYTHON_PATH CURRENT_DIRECTORY INSTALL_DIRECTORY TEST_DIRECTORY EXEC_PATH 
@@ -57,3 +58,6 @@ lint: ##@Lint Check codebase with flake8
 
 train:
 	$(PYTHON) starter/train_model.py
+
+api:
+	$(UVICORN) main:app --reload
