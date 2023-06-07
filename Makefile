@@ -54,7 +54,9 @@ test:
 	$(PYTEST) $(TEST_DIRECTORY)  -W ignore::DeprecationWarning
 
 lint: ##@Lint Check codebase with flake8
-	$(FLAKE) starter tests
+	$(FLAKE) .  --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.venv &\
+	$(FLAKE) .  --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=.venv
+
 
 train:
 	$(PYTHON) starter/train_model.py
