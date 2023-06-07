@@ -1,0 +1,12 @@
+numpy
+pandas
+scikit-learn
+pytest
+requests
+fastapi
+uvicorn
+gunicorn
+flake8
+ipykernel
+flake8
+pycodestyle
