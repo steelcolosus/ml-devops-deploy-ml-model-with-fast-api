@@ -4,15 +4,9 @@ SHELL := /bin/bash
 USER_NAME := $(shell whoami)
 PYTHON_VERSION=$(shell python3 -c 'import sys; print("{0}.{1}".format(sys.version_info[0], sys.version_info[1]))')
 PYTHON_PATH=$(shell which python3)
-
-
 CURRENT_DIRECTORY:=$(shell pwd)
 INSTALL_DIRECTORY:=$(CURRENT_DIRECTORY)/.venv
 
-
-
-Eddy Velasquez
-Screen share
 
 TEST_DIRECTORY:=$(CURRENT_DIRECTORY)/tests
 EXEC_PATH:=$(INSTALL_DIRECTORY)/bin/
@@ -71,4 +65,4 @@ api-dev:
 	$(UVICORN) main:app --reload --host 0.0.0.0 --port 8000
 
 api-prod:
-	$(UVICORN) main:app --host 0.0.0.0 --port 80
+	$(UVICORN) main:app --host 0.0.0.0 --port 8000
