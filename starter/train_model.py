@@ -106,5 +106,5 @@ with open(output_file, "w", encoding="utf-8") as f:
         )
         f.write(f'\nResults for feature: {feature}\n')
         f.write(df_results.to_string())
-        f.write("\n" + "="*50 + "\n")
+        f.write("\n" + "=" * 50 + "\n")
 log.debug("Done!")

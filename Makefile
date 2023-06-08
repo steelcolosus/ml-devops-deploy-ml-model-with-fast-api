@@ -17,6 +17,7 @@ PYTHON := $(EXEC_PATH)python3
 PYTEST := $(PYTHON) -m pytest
 FLAKE := $(EXEC_PATH)flake8
 UVICORN := $(EXEC_PATH)uvicorn
+AUTOPEP8 := $(EXEC_PATH)autopep8
 VENV:= python3 -m venv
 
 variables := PYTHONPATH  USER_NAME PYTHON_VERSION PYTHON_PATH CURRENT_DIRECTORY INSTALL_DIRECTORY TEST_DIRECTORY EXEC_PATH
@@ -56,6 +57,9 @@ test:
 lint: ##@Lint Check codebase with flake8
 	$(FLAKE) .  --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.venv &\
 	$(FLAKE) .  --count --exit-zero  --max-line-length=127 --statistics --exclude=.venv
+
+format: ##@Format Format codebase with black
+	$(AUTOPEP8) --in-place --recursive --aggressive --max-line-length 127 --exclude .venv .
 
 
 train:
