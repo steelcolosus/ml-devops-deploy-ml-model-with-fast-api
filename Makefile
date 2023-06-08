@@ -65,4 +65,4 @@ api-dev:
 	$(UVICORN) main:app --reload --host 0.0.0.0 --port 8000
 
 api-prod:
-	$(UVICORN) main:app --host 0.0.0.0 --port 8000
+	$(UVICORN) main:app --host 0.0.0.0 --port 80
