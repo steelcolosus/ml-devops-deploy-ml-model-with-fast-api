@@ -1,3 +1,4 @@
+'''FastApi enums for the Adult Census Income project.'''
 from enum import Enum
 
 

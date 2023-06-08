@@ -10,3 +10,4 @@ flake8==6.0.0
 ipykernel==6.23.1
 pycodestyle==2.10.0
 httpx==0.24.1
+pre-commit==3.3.2

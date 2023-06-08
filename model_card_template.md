@@ -17,7 +17,7 @@ The evaluation data is the test split from the Census Income Dataset. This datas
 
 
 ## Metrics
-The model was evaluated using precision, recall, and F-beta score. These metrics were calculated for each slice of the categorical features in the dataset as well. 
+The model was evaluated using precision, recall, and F-beta score. These metrics were calculated for each slice of the categorical features in the dataset as well.
 
 - Precision: 0.7320211960635882,
 - Recall: 0.6279220779220779

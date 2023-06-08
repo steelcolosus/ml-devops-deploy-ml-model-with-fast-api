@@ -19,7 +19,7 @@ FLAKE := $(EXEC_PATH)flake8
 UVICORN := $(EXEC_PATH)uvicorn
 VENV:= python3 -m venv
 
-variables := PYTHONPATH  USER_NAME PYTHON_VERSION PYTHON_PATH CURRENT_DIRECTORY INSTALL_DIRECTORY TEST_DIRECTORY EXEC_PATH 
+variables := PYTHONPATH  USER_NAME PYTHON_VERSION PYTHON_PATH CURRENT_DIRECTORY INSTALL_DIRECTORY TEST_DIRECTORY EXEC_PATH
 
 # Add the following 'help' target to your Makefile
 # And add help text after each target name starting with '\#\#'
@@ -38,7 +38,7 @@ HELP_FUN = \
 
 help: ##@Help Show this help.
 	@perl -e '$(HELP_FUN)' $(MAKEFILE_LIST)
-	@IFS=$$'\n' ; printf " ${YELLOW}%-28s ${GREEN}%s\n${RESET}" "Variables" ; 
+	@IFS=$$'\n' ; printf " ${YELLOW}%-28s ${GREEN}%s\n${RESET}" "Variables" ;
 	@for variable in $(variables) ; do \
   		$(eval export $(variable)) \
 		printf " ${YELLOW}%-28s ${GREEN}%s\n${RESET}" "$$variable" "$${!variable}" ; \
@@ -55,7 +55,7 @@ test:
 
 lint: ##@Lint Check codebase with flake8
 	$(FLAKE) .  --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.venv &\
-	$(FLAKE) .  --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=.venv
+	$(FLAKE) .  --count --exit-zero  --max-line-length=127 --statistics --exclude=.venv
 
 
 train:
