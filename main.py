@@ -1,5 +1,6 @@
 """ This is the main module of your FastAPI application."""
 import logging
+from typing_extensions import Literal
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 import pandas as pd
@@ -61,6 +62,11 @@ class Data(BaseModel):
         }
 
 
+class Prediction(BaseModel):
+    '''Prediction from the model'''
+    prediction: Literal["Over 50K", "Less than 50K"]
+
+
 app = FastAPI()
 
 model = load("model/model.joblib")
@@ -84,13 +90,12 @@ def read_root():
     return {"message": "Hello, welcome to our machine learning model API"}
 
 
-@app.post("/predict/")
+@app.post("/predict/", response_model=Prediction)
 def predict(data: Data):
     '''
     POST method to predict from a trained model.
     Output:
-        0: <=50K
-        1: >50K
+        - prediction: Over 50K or Less than 50K
     '''
     logger.info(f"Making a post request...{data}")
 
